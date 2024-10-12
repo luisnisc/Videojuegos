@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Navegación - Sitio de Videojuegos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sitio de Videojuegos</h1>
+        <p>Tu fuente de información sobre consolas, juegos y noticias de la industria</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="consolas.html">Consolas</a></li>
+            <li><a href="mejores_juegos.html">Mejores Juegos</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="foro.html">Foro</a></li>
+            <li><a href="mapa_navegacion.html">Mapa de Navegación</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h1>Mapa de Navegación</h1>
+            <div class="mermaid">
+                graph TD;
+                    A[Inicio] <--> B[Consolas];
+                    A <--> C[Mejores Juegos];
+                    A <--> D[Noticias];
+                    A <--> E[Foro];
+                    A <--> F[Mapa de Navegación];
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Sitio de Videojuegos. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@sitiodevideojuegos.com">info@sitiodevideojuegos.com</a></p>
+    </footer>
+</body>
+</html>
