@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa de Navegación</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al archivo de estilos CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Script para inicializar Mermaid.js -->
     <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'default',
-            themeVariables: {
-                primaryColor: '#ffcc00',
-                edgeLabelBackground: '#ffffff',
-                clusterBkg: '#f0f0f0',
-                clusterBorder: '#333333'
-            },
-            flowchart: {
-                curve: 'basis',
-                nodeSpacing: 100,
-                rankSpacing: 100
-            }
-        });
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        themeVariables: {
+          primaryColor: "#ffcc00",
+          edgeLabelBackground: "#ffffff",
+          clusterBkg: "#f0f0f0",
+          clusterBorder: "#333333",
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 100,
+          rankSpacing: 100,
+        },
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Encabezado del sitio -->
     <header>
-        <h1>GameAnalytic</h1>
-        <p>Tu fuente de información sobre consolas, juegos y noticias de la industria</p>
+      <h1>GameAnalytic</h1>
+      <p>
+        Tu fuente de información sobre consolas, juegos y noticias de la
+        industria
+      </p>
     </header>
-    <hr>
+    <hr />
+    <!-- Navegación principal del sitio -->
     <nav>
-        <ul>
-            <li><a href="./index.html">Inicio</a></li>
-            <li><a href="./consolas.html">Consolas</a></li>
-            <li><a href="./mejores_juegos.html">Mejores Juegos</a></li>
-            <li><a href="./noticias.html">Noticias</a></li>
-            <li><a href="./juegos.html">Tipos de Juegos</a></li>
-            <li><a href="./mapa_navegacion.html">Mapa de Navegación</a></li>
-        </ul>
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./consolas.html">Consolas</a></li>
+        <li><a href="./mejores_juegos.html">Mejores Juegos</a></li>
+        <li><a href="./noticias.html">Noticias</a></li>
+        <li><a href="./juegos.html">Tipos de Juegos</a></li>
+        <li><a href="./mapa_navegacion.html">Mapa de Navegación</a></li>
+      </ul>
     </nav>
-    <hr>
+    <hr />
+    <!-- Contenido principal del sitio -->
     <main>
-        <section>
-            <h1>Mapa de Navegación</h1>
-            <div class="mermaid">
-                graph TD
-                    A[Inicio] --> B[Consolas]
-                    A --> C[Mejores Juegos]
-                    A --> D[Noticias]
-                    A --> E[Foro]
-                    A --> F[Mapa de Navegación]
-                    A --> G[Tipos de Juegos]
-                    G --> H[Shooter]
-                    G --> I[Aventuras]
-                    G --> J[RPG]
-                    G --> K[Deportes]
-                    G --> L[Estrategia]
-                    G --> M[Simulación]
-                    G --> N[Puzzle]
-            </div>
-        </section>
+      <section>
+        <h1>Mapa de Navegación</h1>
+        <!-- Diagrama generado por Mermaid.js -->
+        <div class="mermaid">
+          graph TD A[Inicio] --> B[Consolas] A --> C[Mejores Juegos] A -->
+          D[Noticias] A --> E[Foro] A --> F[Mapa de Navegación] A --> G[Tipos de
+          Juegos] G --> H[Shooter] G --> I[Aventuras] G --> J[RPG] G -->
+          K[Deportes] G --> L[Estrategia] G --> M[Simulación] G --> N[Puzzle]
+        </div>
+      </section>
     </main>
+    <!-- Pie de página del sitio -->
     <footer>
-        <p>&copy; 2023 Sitio de Videojuegos. Todos los derechos reservados.</p>
-        <p>Contacto: <a href="mailto:info@sitiodevideojuegos.com">info@sitiodevideojuegos.com</a></p>
+      <p>&copy; 2023 Sitio de Videojuegos. Todos los derechos reservados.</p>
+      <p>
+        Contacto:
+        <a href="mailto:info@sitiodevideojuegos.com"
+          >info@sitiodevideojuegos.com</a
+        >
+      </p>
     </footer>
-</body>
+  </body>
 </html>
