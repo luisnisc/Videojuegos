@@ -1,0 +1,157 @@
+/* main.css */
+
+/* CSS Variables for easy customization */
+:root {
+    --primary-color: #1e1e2f;
+    --secondary-color: #27293d;
+    --accent-color: #ff6f61;
+    --text-color: #ffffff;
+    --muted-text-color: #b0b0b0;
+    --font-family: 'Roboto', sans-serif;
+    --border-radius: 8px;
+    --gradient-title: linear-gradient(90deg, #ff1500, #ff9a8b, #a88a87);
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    font-size: 1.2em;
+    display: inline-block; /* Ensure links are inline for horizontal layout */
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Card Container Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px; /* Limita la altura de las tarjetas */
+}
+
+.card img {
+    max-width: 100%;
+    height: 150px; /* Ajusta la altura de las imágenes */
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    color: var(--muted-text-color);
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+    overflow: hidden; /* Oculta el desbordamiento del texto */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto desbordado */
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid var(--accent-color);
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    color: var(--muted-text-color);
+}
+
+/* Gradient Title */
+#title_header {
+    background: var(--gradient-title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
