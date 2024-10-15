@@ -1,6 +1,5 @@
 /* main.css */
 
-/* CSS Variables for easy customization */
 :root {
     --primary-color: #1e1e2f;
     --secondary-color: #27293d;
@@ -9,10 +8,30 @@
     --muted-text-color: #b0b0b0;
     --font-family: 'Roboto', sans-serif;
     --border-radius: 8px;
-    --gradient-title: linear-gradient(90deg, #ff1500, #ff9a8b, #a88a87);
+    --gradient-title: linear-gradient(90deg, #ff0000, #fdd9d3);
 }
 
-/* Global Styles */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--secondary-color);
+    scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    border: 3px solid var(--secondary-color);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -22,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    text-align: center;
 }
 
 a {
@@ -96,7 +116,7 @@ section h2 {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 /* Card Styles */
@@ -111,12 +131,15 @@ section h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 450px; /* Limita la altura de las tarjetas */
+    height: 450px; 
+    filter: brightness(0.6);
+    transition: filter 200ms ease-in-out, scale 200ms ease-in-out;
+    scale: 0.9;
 }
 
 .card img {
     max-width: 100%;
-    height: 150px; /* Ajusta la altura de las imágenes */
+    height: 150px; 
     border-radius: var(--border-radius);
     object-fit: cover;
 }
@@ -128,9 +151,14 @@ section h2 {
 
 .card p {
     color: var(--muted-text-color);
-    flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
-    overflow: hidden; /* Oculta el desbordamiento del texto */
-    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto desbordado */
+    flex-grow: 1; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.card:hover {
+    filter: brightness(1);
+    scale: 1;
 }
 
 /* Footer Styles */
@@ -154,4 +182,37 @@ footer p {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+}
+#tipos_juegos_lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    scale: 0.9;
+}
+
+#tipos_juegos_lista li {
+    margin: 10px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#tipos_juegos_lista li a {
+    display: block;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#tipos_juegos_lista li:hover {
+    transform: scale(1);
+    background-color: var(--accent-color);
+}
+
+#tipos_juegos_lista li a:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+li{
+    list-style:none;
 }
