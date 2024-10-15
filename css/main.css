@@ -15,6 +15,7 @@ html {
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) var(--secondary-color);
     scroll-behavior: smooth;
+    cursor: url('../img/cursor.png'), auto;
 }
 
 
@@ -47,6 +48,7 @@ body {
 a {
     color: var(--accent-color);
     text-decoration: none;
+    cursor: url('../img/cursor.png'), auto;
 }
 
 a:hover {
@@ -59,6 +61,7 @@ header {
     padding: 20px;
     text-align: center;
     border-bottom: 2px solid var(--accent-color);
+    user-select: none;
 }
 
 header h1 {
@@ -71,6 +74,7 @@ nav {
     display: flex;
     justify-content: center;
     background-color: var(--secondary-color);
+    flex-wrap: wrap;
     padding: 10px 0;
     width: 100%;
 }
@@ -135,6 +139,8 @@ section h2 {
     filter: brightness(0.6);
     transition: filter 200ms ease-in-out, scale 200ms ease-in-out;
     scale: 0.9;
+    perspective: 1000px; /* Añadir perspectiva para el efecto 3D */
+    transform-style: preserve-3d;
 }
 
 .card img {
@@ -142,6 +148,7 @@ section h2 {
     height: 150px; 
     border-radius: var(--border-radius);
     object-fit: cover;
+
 }
 
 .card h2 {
@@ -159,6 +166,7 @@ section h2 {
 .card:hover {
     filter: brightness(1);
     scale: 1;
+    transform: rotateY(0deg) rotateX(0deg); /* Resetear la rotación al hacer hover */
 }
 
 /* Footer Styles */
