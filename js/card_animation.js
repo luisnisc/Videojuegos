@@ -9,6 +9,7 @@ document.querySelectorAll('.card').forEach(card => {
         const rotateY = (x - centerX) / 10; // Ajustar para que se incline correctamente
 
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        
     });
 
     card.addEventListener('mouseleave', () => {
