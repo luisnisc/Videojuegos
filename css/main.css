@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
 /* main.css */
 
 :root {
@@ -7,8 +8,10 @@
     --text-color: #ffffff;
     --muted-text-color: #b0b0b0;
     --font-family: 'Roboto', sans-serif;
+    --font-family-title: 'Sixtyfour Convergence', sans-serif;
     --border-radius: 8px;
     --gradient-title: linear-gradient(90deg, #ff0000, #fdd9d3);
+    --gradient-mejoresJuegos: linear-gradient(180deg, #ff0000, #fdd9d3);
 }
 
 html {
@@ -18,21 +21,7 @@ html {
     cursor: url('../img/cursor.png'), auto;
 }
 
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--secondary-color);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
-    border-radius: var(--border-radius);
-    border: 3px solid var(--secondary-color);
-}
-
+/* Forzando la herencia */
 body {
     margin: 0;
     padding: 0;
@@ -43,6 +32,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
+    user-select: none; /* Omite la herencia */
 }
 
 a {
@@ -53,25 +43,24 @@ a {
 
 a:hover {
     text-decoration: underline;
-    
 }
 
-
-/* Header Styles */
+/* Estilos del encabezado */
 header {
     background-color: var(--secondary-color);
     padding: 20px;
     text-align: center;
     border-bottom: 2px solid var(--accent-color);
-    user-select: none;
+    opacity: 0.9;
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5em;
+    font-family: var(--font-family-title);
 }
 
-/* Navigation Styles */
+/* Estilos de navegación */
 nav {
     display: flex;
     justify-content: center;
@@ -79,6 +68,7 @@ nav {
     flex-wrap: wrap;
     padding: 10px 0;
     width: 100%;
+    
 }
 
 nav ul {
@@ -86,6 +76,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas más pequeñas */
 }
 
 nav ul li {
@@ -94,14 +85,31 @@ nav ul li {
 
 nav a {
     font-size: 1.2em;
-    display: inline-block; /* Ensure links are inline for horizontal layout */
+    display: inline-block; /* Asegurar que los enlaces sean en línea para el diseño horizontal */
 }
 
 nav a:hover {
     color: var(--accent-color);
 }
 
-/* Main Content Styles */
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Apilar elementos verticalmente en pantallas más pequeñas */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Agregar margen entre elementos */
+    }
+
+    /* Ocultar un elemento excepto header, section o footer */
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+/* Estilos del contenido principal */
 main {
     flex: 1;
     padding: 20px;
@@ -117,15 +125,23 @@ section h2 {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+.mejoresJuegos_title{
+    background: var(--gradient-mejoresJuegos);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+ 
 
-/* Card Container Styles */
+}
+/* Estilos del contenedor de tarjetas */
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-/* Card Styles */
+/* Estilos de la tarjeta */
 .card {
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
@@ -143,6 +159,8 @@ section h2 {
     scale: 0.9;
     perspective: 1000px; /* Añadir perspectiva para el efecto 3D */
     transform-style: preserve-3d;
+    position: relative; /* Añadido para cumplir con el requisito */
+    z-index: 1; /* Añadido para cumplir con el requisito */
 }
 
 .card img {
@@ -150,7 +168,6 @@ section h2 {
     height: 150px; 
     border-radius: var(--border-radius);
     object-fit: cover;
-
 }
 
 .card h2 {
@@ -171,7 +188,7 @@ section h2 {
     transform: rotateY(0deg) rotateX(0deg); /* Resetear la rotación al hacer hover */
 }
 
-/* Footer Styles */
+/* Estilos del pie de página */
 footer {
     background-color: var(--secondary-color);
     text-align: center;
@@ -185,7 +202,7 @@ footer p {
     color: var(--muted-text-color);
 }
 
-/* Gradient Title */
+/* Título con degradado */
 #title_header {
     background: var(--gradient-title);
     -webkit-background-clip: text;
@@ -193,6 +210,7 @@ footer p {
     background-clip: text;
     text-fill-color: transparent;
 }
+
 #tipos_juegos_lista {
     list-style: none;
     padding: 0;
@@ -223,6 +241,53 @@ footer p {
     background-color: var(--accent-color);
     color: var(--secondary-color);
 }
-li{
-    list-style:none;
+
+/* Selector con atributo */
+input[type="text"] {
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+/* Pseudoelemento */
+.card::before {
+    content: '';
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color con transparencia */
+    z-index: -1; /* Añadido para cumplir con el requisito */
+}
+
+/* Posición absoluta */
+.absolute-element {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    z-index: 2; /* Añadido para cumplir con el requisito */
+}
+
+/* Posición fija */
+.fixed-element {
+    position: fixed;
+    
+    top: 0;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    z-index: 3; /* Añadido para cumplir con el requisito */
+}
+.main-content{
+    margin-top:10em
+}
+li {
+    list-style: none;
 }
