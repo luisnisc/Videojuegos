@@ -107,6 +107,10 @@ nav a:hover {
     .hide-on-mobile {
         display: none;
     }
+    .main-content{
+        margin-top: 10em; /* Adjusted to a more appropriate unit */
+    }
+   
 }
 
 /* Estilos del contenido principal */
