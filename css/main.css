@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
-/* main.css */
+/* Archivo: main.css */
 
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+
+/* Variables CSS para personalización */
 :root {
     --primary-color: #1e1e2f;
     --secondary-color: #27293d;
@@ -14,27 +17,30 @@
     --gradient-mejoresJuegos: linear-gradient(180deg, #ff0000, #fdd9d3);
 }
 
+/* Estilos globales */
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) var(--secondary-color);
     scroll-behavior: smooth;
     cursor: url('../img/cursor.png'), auto;
+    font-size: 16px;
 }
 
-/* Forzando la herencia */
+/* Forzando la herencia y estilos del cuerpo */
 body {
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
     background-color: var(--primary-color);
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
+    display: flex; /* FLEXBOX: Configuramos el cuerpo como un contenedor flex */
+    flex-direction: column; /* FLEXBOX: Orientación de los elementos en columna */
     min-height: 100vh;
     text-align: center;
     user-select: none; /* Omite la herencia */
 }
 
+/* Estilos para enlaces */
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -62,21 +68,20 @@ header h1 {
 
 /* Estilos de navegación */
 nav {
-    display: flex;
-    justify-content: center;
+    display: flex; /* FLEXBOX: Contenedor flex para la navegación */
+    justify-content: center; /* FLEXBOX: Centra los elementos horizontalmente */
     background-color: var(--secondary-color);
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* FLEXBOX: Permite que los elementos se envuelvan */
     padding: 10px 0;
     width: 100%;
-    
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas más pequeñas */
+    display: flex; /* FLEXBOX: Los elementos de la lista se alinean horizontalmente */
+    flex-wrap: wrap; /* FLEXBOX: Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
 nav ul li {
@@ -85,40 +90,20 @@ nav ul li {
 
 nav a {
     font-size: 1.2em;
-    display: inline-block; /* Asegurar que los enlaces sean en línea para el diseño horizontal */
+    display: inline-block; /* Asegura que los enlaces sean inline-block */
 }
 
 nav a:hover {
     color: var(--accent-color);
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column; /* Apilar elementos verticalmente en pantallas más pequeñas */
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Agregar margen entre elementos */
-    }
-
-    /* Ocultar un elemento excepto header, section o footer */
-    .hide-on-mobile {
-        display: none;
-    }
-    .main-content{
-        margin-top: 10em; /* Adjusted to a more appropriate unit */
-    }
-   
-}
-
 /* Estilos del contenido principal */
 main {
-    flex: 1;
+    flex: 1; /* FLEXBOX: El contenido principal ocupa el espacio disponible */
     padding: 20px;
 }
 
+/* Estilos de las secciones */
 section {
     margin-bottom: 40px;
 }
@@ -129,47 +114,49 @@ section h2 {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
-.mejoresJuegos_title{
-    background: var(--gradient-mejoresJuegos);
+
+/* Título con degradado */
+#title_header {
+    background: var(--gradient-title);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
- 
-
 }
+
 /* Estilos del contenedor de tarjetas */
+/* Cambiamos de Flexbox a Grid */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid; /* GRID: Utilizamos Grid para el contenedor de tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* GRID: Columnas responsivas */
+    grid-gap: 20px; /* GRID: Espacio entre elementos */
+    /* Eliminamos propiedades de Flexbox */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
 }
 
-/* Estilos de la tarjeta */
+/* Estilos de las tarjetas */
 .card {
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     padding: 20px;
-    margin: 20px;
+    /* margin: 20px; */ /* Ajustamos el margen para que Grid maneje el espacio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    /* width: 300px; */ /* Eliminamos el ancho fijo */
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 450px; 
+    display: flex; /* FLEXBOX: Configuramos la tarjeta como un contenedor flex */
+    flex-direction: column; /* FLEXBOX: Orientación en columna */
+    justify-content: space-between; /* FLEXBOX: Distribuye el espacio entre los elementos */
+    height: 450px;
+    position: relative; /* Posicionamiento relativo */
+    overflow: hidden;
     filter: brightness(0.6);
-    transition: filter 200ms ease-in-out, scale 200ms ease-in-out;
-    scale: 0.9;
-    perspective: 1000px; /* Añadir perspectiva para el efecto 3D */
-    transform-style: preserve-3d;
-    position: relative; /* Añadido para cumplir con el requisito */
-    z-index: 1; /* Añadido para cumplir con el requisito */
+    transition: filter 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
 .card img {
     max-width: 100%;
-    height: 150px; 
+    height: 150px;
     border-radius: var(--border-radius);
     object-fit: cover;
 }
@@ -181,15 +168,14 @@ section h2 {
 
 .card p {
     color: var(--muted-text-color);
-    flex-grow: 1; 
+    flex-grow: 1; /* FLEXBOX: El párrafo ocupa el espacio disponible */
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .card:hover {
     filter: brightness(1);
-    scale: 1;
-    transform: rotateY(0deg) rotateX(0deg); /* Resetear la rotación al hacer hover */
+    transform: scale(1.05); /* Transición al pasar el mouse */
 }
 
 /* Estilos del pie de página */
@@ -206,20 +192,11 @@ footer p {
     color: var(--muted-text-color);
 }
 
-/* Título con degradado */
-#title_header {
-    background: var(--gradient-title);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
+/* Lista de tipos de juegos */
 #tipos_juegos_lista {
     list-style: none;
     padding: 0;
     margin: 0;
-    scale: 0.9;
 }
 
 #tipos_juegos_lista li {
@@ -264,10 +241,10 @@ input[type="text"] {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Color con transparencia */
-    z-index: -1; /* Añadido para cumplir con el requisito */
+    z-index: -1;
 }
 
-/* Posición absoluta */
+/* Posicionamiento absoluto */
 .absolute-element {
     position: absolute;
     top: 10px;
@@ -275,23 +252,38 @@ input[type="text"] {
     background-color: var(--accent-color);
     padding: 10px;
     border-radius: var(--border-radius);
-    z-index: 2; /* Añadido para cumplir con el requisito */
+    z-index: 2;
 }
 
-/* Posición fija */
+/* Posicionamiento fijo */
 .fixed-element {
     position: fixed;
-    
     top: 0;
     background-color: var(--secondary-color);
     padding: 10px;
     width: 100%;
     border-radius: var(--border-radius);
-    z-index: 3; /* Añadido para cumplir con el requisito */
+    z-index: 3;
 }
-.main-content{
-    margin-top:10em
+
+.main-content {
+    margin-top: 10em;
 }
+
 li {
     list-style: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* FLEXBOX: Orientación vertical en pantallas pequeñas */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    .main-content {
+        margin-top: 10em;
+    }
 }
