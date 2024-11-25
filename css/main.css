@@ -37,7 +37,7 @@ body {
     flex-direction: column; /* FLEXBOX: Orientación de los elementos en columna */
     min-height: 100vh;
     text-align: center;
-    user-select: none; /* Omite la herencia */
+    user-select: none; 
 }
 
 /* Estilos para enlaces */
@@ -124,15 +124,11 @@ section h2 {
     text-fill-color: transparent;
 }
 
-/* Estilos del contenedor de tarjetas */
-/* Cambiamos de Flexbox a Grid */
+/* Estilos del contenedor de tarjetas. Lo puedes ver en la página de /pages/mejores_juegos.html*/
 .card-container {
     display: grid; /* GRID: Utilizamos Grid para el contenedor de tarjetas */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* GRID: Columnas responsivas */
     grid-gap: 20px; /* GRID: Espacio entre elementos */
-    /* Eliminamos propiedades de Flexbox */
-    /* flex-wrap: wrap; */
-    /* justify-content: space-between; */
 }
 
 /* Estilos de las tarjetas */
@@ -140,9 +136,7 @@ section h2 {
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     padding: 20px;
-    /* margin: 20px; */ /* Ajustamos el margen para que Grid maneje el espacio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* width: 300px; */ /* Eliminamos el ancho fijo */
     text-align: center;
     display: flex; /* FLEXBOX: Configuramos la tarjeta como un contenedor flex */
     flex-direction: column; /* FLEXBOX: Orientación en columna */
