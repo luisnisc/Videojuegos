@@ -129,7 +129,17 @@ section h2 {
     display: grid; /* GRID: Utilizamos Grid para el contenedor de tarjetas */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* GRID: Columnas responsivas */
     grid-gap: 20px; /* GRID: Espacio entre elementos */
+    justify-content: center;
+    perspective: 1000px; /* Establece la perspectiva para las transformaciones 3D */
 }
+
+.card-container-consolas {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-gap: 20px;
+    justify-content: center;
+}
+
 
 /* Estilos de las tarjetas */
 .card {
@@ -146,6 +156,8 @@ section h2 {
     overflow: hidden;
     filter: brightness(0.6);
     transition: filter 200ms ease-in-out, transform 200ms ease-in-out;
+    will-change: transform; /* Ayuda al rendimiento de la animación */
+    transform-style: preserve-3d; /* Preserva las transformaciones 3D */
 }
 
 .card img {
@@ -279,5 +291,19 @@ li {
     }
     .main-content {
         margin-top: 10em;
+    }
+    .main-content-mejoresJuegos{
+        margin-top:20em;
+    }
+    .fixed-element > p{
+        display:none;
+    }
+}
+@media (min-width: 768px) {
+    .main-content {
+        margin-top: 10em;
+    }
+    .main-content-mejoresJuegos{
+        margin-top:10em;
     }
 }
