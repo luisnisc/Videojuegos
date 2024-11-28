@@ -37,7 +37,7 @@ body {
     flex-direction: column; /* FLEXBOX: Orientación de los elementos en columna */
     min-height: 100vh;
     text-align: center;
-    user-select: none; 
+    user-select: none; /* Omite la herencia */
 }
 
 /* Estilos para enlaces */
@@ -88,8 +88,9 @@ nav ul li {
     margin: 0 15px;
 }
 
+/* Sobrescritura mediante cascada */
 nav a {
-    font-size: 1.2em;
+    font-size: 1.2em;/* Comentario: Sobrescribimos el estilo de los enlaces en la navegación */
     display: inline-block; /* Asegura que los enlaces sean inline-block */
 }
 
@@ -197,7 +198,44 @@ footer p {
     margin: 0;
     color: var(--muted-text-color);
 }
+/* Estilos para las tarjetas de noticias */
+.div-noticias {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
 
+.div-noticias:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Título de la tarjeta */
+.div-noticias h2 {
+    color: var(--accent-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Imagen de la tarjeta */
+.div-noticias img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+/* Contenido de la tarjeta */
+.div-noticias p {
+    color: var(--muted-text-color);
+    line-height: 1.6;
+    font-size: 1em;
+}
 /* Lista de tipos de juegos */
 #tipos_juegos_lista {
     list-style: none;
@@ -262,7 +300,7 @@ input[type="text"] {
 }
 
 /* Posicionamiento fijo */
-.fixed-element {
+.fixed-element { /* Comentario: Puedes ver esta clase en el header */
     position: fixed;
     top: 0;
     background-color: var(--secondary-color);
@@ -296,7 +334,7 @@ li {
         margin-top:20em;
     }
     .fixed-element > p{
-        display:none;
+        display:none; /* Con esta linea ocultamos el párrafo que esta al lado del título*/
     }
 }
 @media (min-width: 768px) {
@@ -305,5 +343,107 @@ li {
     }
     .main-content-mejoresJuegos{
         margin-top:10em;
+    }
+}
+
+/* Estilos para el formulario de contacto.html */
+.formulario-contacto {
+    max-width: 500px; /* Limita el ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario */
+    text-align: left;
+    background-color: var(--secondary-color);
+    padding: 20px; /* Asegura suficiente espacio interno */
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Etiquetas de formulario */
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Aplicar box-sizing: border-box a inputs y textarea del formulario */
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    padding: 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Incluye padding y border en el width */
+}
+
+.formulario-contacto input[type="email"]::placeholder,
+.formulario-contacto textarea::placeholder {
+    color: var(--muted-text-color);
+}
+
+/* Estilos para el textarea */
+.formulario-contacto textarea {
+    resize: vertical; /* Permite al usuario cambiar el tamaño verticalmente */
+}
+
+/* Botón de envío */
+.formulario-contacto button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-contacto button:hover {
+    background-color: #e65a50; /* Un tono más oscuro del color de acento */
+}
+
+.formulario-contacto button:active {
+    transform: scale(0.98); /* PSEUDOCLASE: Efecto al presionar el botón */
+}
+
+#contacto h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#contacto p {
+    margin-bottom: 20px;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* FLEXBOX: Orientación vertical en pantallas pequeñas */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    .main-content {
+        margin-top: 10em;
+    }
+    .main-content-mejoresJuegos {
+        margin-top: 20em;
+    }
+    .fixed-element > p {
+        display: none; /* Con esta línea ocultamos el párrafo que está al lado del título */
+    }
+    .formulario-contacto button {
+        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+    }
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-top: 10em;
+    }
+    .main-content-mejoresJuegos {
+        margin-top: 10em;
     }
 }
