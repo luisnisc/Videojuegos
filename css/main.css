@@ -132,6 +132,7 @@ section h2 {
     grid-gap: 20px; /* GRID: Espacio entre elementos */
     justify-content: center;
     perspective: 1000px; /* Establece la perspectiva para las transformaciones 3D */
+
 }
 
 .card-container-consolas {
@@ -156,9 +157,7 @@ section h2 {
     position: relative; /* Posicionamiento relativo */
     overflow: hidden;
     filter: brightness(0.6);
-    transition: filter 200ms ease-in-out, transform 200ms ease-in-out;
-    will-change: transform; /* Ayuda al rendimiento de la animación */
-    transform-style: preserve-3d; /* Preserva las transformaciones 3D */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .card img {
@@ -426,7 +425,7 @@ li {
         margin: 10px 0;
     }
     .main-content {
-        margin-top: 10em;
+        margin-top: 23em;
     }
     .main-content-mejoresJuegos {
         margin-top: 20em;
